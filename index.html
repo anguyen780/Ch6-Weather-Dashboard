@@ -1,12 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Weather Dashboard</title>
 </head>
+
 <body>
-    
+    <header>
+        <nav class="navbar navbar-light bg-dark d-flex justify-content-center">
+            <span class="navbar-brand p-4 h1 text-white dash-board">Weather Dashboard</span>
+        </nav>
+    </header>
+    <section class="container-fluid row">
+        <form class="col-2 mt-3">
+            <div class="form-group">
+                <label class="h1">Search for a City:</label>
+                <input type="email" class="form-control" id="city-input" placeholder="Ex: Chicago">
+                <button type="button" class="btn btn-dark mt-3 container-fluid">Search</button>
+                <div class="form-border mt-3"></div>
+            </div>
+        </form>
+        <div class="col-10 border border-dark mt-3">
+            <h2>CITY (DATE)</h2>
+            <p>Temp: </p>
+            <p>Wind: </p>
+            <p>Humidity: </p>
+        </div>
+    </section>
+    <section class="container-fluid row">
+        <div class="list-group col-lg-2 mt-4 city-history-list">
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+            
+          </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./assets/logic.js"></script>
 </body>
+
 </html>
