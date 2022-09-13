@@ -18,19 +18,19 @@
         </nav>
     </header>
     <section class="container-fluid row">
-        <form class="col-2 mt-3">
+        <form class="col-lg-2 mt-3">
             <div class="form-group">
                 <label class="h1">Search for a City:</label>
-                <input type="email" class="form-control" id="city-input" placeholder="Ex: Chicago">
-                <button type="button" class="btn btn-dark mt-3 container-fluid">Search</button>
+                <input id="city-input" type="text" class="form-control" id="city-input" placeholder="Ex: Chicago">
+                <button id="search-btn" type="button" class="btn btn-dark mt-3 container-fluid">Search</button>
                 <div class="form-border mt-3"></div>
             </div>
         </form>
-        <div class="col-10 border border-dark mt-3">
-            <h2>CITY (DATE)</h2>
-            <p>Temp: </p>
-            <p>Wind: </p>
-            <p>Humidity: </p>
+        <div id="forecast-div" class="col-10 mt-3">
+            <h2 id="current-forecast"></h2>
+            <p id="temperature"></p>
+            <p id="wind"></p>
+            <p id="humidity"></p>
         </div>
     </section>
     <section class="container-fluid row">
@@ -43,8 +43,8 @@
             <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
-            
-          </div>
+
+        </div>
     </section>
 
 
@@ -71,7 +71,7 @@
 
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="./assets/logic.js"></script>
