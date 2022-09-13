@@ -6,6 +6,8 @@ var tempEl = $('#temperature');
 var windEl = $('#wind');
 var humEl = $('#humidity');
 var forecastBox = $('#forecast-div');
+var dateMoment = moment().add(1, 'day').format("MMM Do YY");
+
 
 function submission(event){
     event.preventDefault();
@@ -26,6 +28,18 @@ function submission(event){
         tempEl.text(`Temp: ${temp} °F`);
         windEl.text(`Wind Speed: ${wind} MPH`);
         humEl.text(`Humidity: ${humidity} %`);
+    })
+}
+
+function forecast5Day (event){
+    event.preventDefault();
+    var weatherApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&units=imperial&appid=${apiKey}`;
+    $('#5day-h2').text('5 Day Forecast')
+
+    fetch(weatherApi).then(function(response){
+        return response.json();
+    }).then(function(results){
+        
     })
 }
 

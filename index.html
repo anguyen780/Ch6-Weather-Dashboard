@@ -14,39 +14,47 @@
 <body>
     <header>
         <nav class="navbar navbar-light bg-dark d-flex justify-content-center">
-            <span class="navbar-brand p-4 h1 text-white dash-board">Weather Dashboard</span>
+            <h1 class="p-4 h1 text-white dash-board">Weather Dashboard</h1>
         </nav>
     </header>
     <section class="container-fluid row">
         <form class="col-lg-2 mt-3">
             <div class="form-group">
-                <label class="h1">Search for a City:</label>
+                <h2>Search for a City:</h2>
                 <input id="city-input" type="text" class="form-control" id="city-input" placeholder="Ex: Chicago">
                 <button id="search-btn" type="button" class="btn btn-dark mt-3 container-fluid">Search</button>
                 <div class="form-border mt-3"></div>
             </div>
         </form>
         <div id="forecast-div" class="col-10 mt-3">
-            <h2 id="current-forecast"></h2>
+            <h3 id="current-forecast"></h3>
             <p id="temperature"></p>
             <p id="wind"></p>
             <p id="humidity"></p>
         </div>
     </section>
     <section class="container-fluid row">
-        <div class="list-group col-lg-2 mt-4 city-history-list">
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-dark mb-2"></a>
+        <div id="city-history">
 
         </div>
+        <div>
+            <h2 id="5day-h2" class="d-flex justify-content-center"></h2>
+        </div>
+        <div class="text-white row" >
+            <div class="col">
+                <div class="card-body">
+                    <h5 id="date2" class="card-title"></h5>
+                    <p id="date1-icon"></p>
+                    <p id="temp-2" class="card-text"></p>
+                    <p id="wind-2" class="card-text"></p>
+                    <p id="humidity-2" class="card-text"></p>
+                </div>
+            </div>
+        </div>
     </section>
-
+ 
+        
+    </section>
 
 
 
