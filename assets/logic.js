@@ -7,39 +7,35 @@ var windEl = $('#wind');
 var humEl = $('#humidity');
 var forecastBox = $('#forecast-div');
 var cityHistory = $('#city-history');
+var weatherDisplay = $('#card-display');
 
 
-
-function submission(event){
+function submission(event) {
     event.preventDefault();
     var cityInput = cityInputEl.val();
-    var savedCity = {
-        city: cityInputEl.val()
-    }
+
     var cityArray = JSON.parse(localStorage.getItem('savedCity')) || [];
-    cityArray.push(savedCity);
+    if (!cityArray.includes(cityInput.toLowerCase())) {
+        cityArray.push(cityInput.toLowerCase());
+    } 
+    
     localStorage.setItem('savedCity', JSON.stringify(cityArray));
 
     for (let i = 0; i < cityArray.length; i++) {
-        var dateButton = $('<button>').attr('class','btn btn-dark');
-        var objectNum = Object.keys(cityArray);
+        var dateButton = $('<div>').attr('class', 'btn btn-dark col-1');
+        
         dateButton.text(`${cityArray[i]}`);
         cityHistory.append(dateButton);
         
-        
 
-        
-    }
-    
-    
-
+    };
 
     var weatherApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&units=imperial&appid=${apiKey}`;
     forecastBox.addClass('border border-dark')
-    
-    fetch(weatherApi).then(function(response){
+
+    fetch(weatherApi).then(function (response) {
         return response.json();
-    }).then(function(results){
+    }).then(function (results) {
         var forecastIcon = results.list[0].weather[0].icon;
         var forecastImg = `http://openweathermap.org/img/wn/${forecastIcon}.png`;
         currentForecast.html(`${results.city.name} (${moment().format('L')}) <img src="${forecastImg}" alt="forecast-icon"/>`);
@@ -53,22 +49,23 @@ function submission(event){
     forecast5Day();
 }
 
-function forecast5Day (){
+function forecast5Day() {
+    weatherDisplay.empty();
     var cityInput = cityInputEl.val();
     cityInputEl.val('');
     var weatherApi = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&units=imperial&appid=${apiKey}`;
     $('#5day-h2').text('5 Day Forecast');
 
-    fetch(weatherApi).then(function(response){
+    fetch(weatherApi).then(function (response) {
         return response.json();
-    }).then(function(results){
+    }).then(function (results) {
         forecastArray = [];
-        forecastArray.push(results.list[6]);
-        forecastArray.push(results.list[14]);
-        forecastArray.push(results.list[22]);
-        forecastArray.push(results.list[30]);
-        forecastArray.push(results.list[38]);
-        
+        forecastArray.push(results.list[3]);
+        forecastArray.push(results.list[11]);
+        forecastArray.push(results.list[19]);
+        forecastArray.push(results.list[27]);
+        forecastArray.push(results.list[35]);
+
         for (let i = 0; i < forecastArray.length; i++) {
             var forecastDayIcon = forecastArray[i].weather[0].icon;
             var forecastDayImg = `http://openweathermap.org/img/wn/${forecastDayIcon}.png`;
@@ -79,23 +76,21 @@ function forecast5Day (){
             var humidity5Day = $('<p>').text(`Humidity: ${forecastArray[i].main.humidity} %`);
             $('#card-display').attr('class', 'card custom-card col-8');
             var iconImg = $('<img>').attr('src', forecastDayImg);
-            var weatherDisplay = $('#card-display');
-            var weatherCard = $('<div>').attr('class','card-body bg-dark text-white');
-            var weatherContainer = $('<div>').attr('class','card');
-            weatherContainer.attr('style','width: 18rem');
+            
+            var weatherCard = $('<div>').attr('class', 'card-body bg-dark text-white');
+            var weatherContainer = $('<div>').attr('class', 'card');
+            weatherContainer.attr('style', 'width: 18rem');
             weatherCard.append(dayTxt, iconImg, temp5Day, wind5Day, humidity5Day);
             weatherContainer.append(weatherCard);
             weatherDisplay.append(weatherContainer);
-           
             
+
+
         }
     })
-    // saveCity();
+   
 }
 
-function saveCity (){
-    
-    
-}
+
 
 searchButtonEl.on('click', submission);
